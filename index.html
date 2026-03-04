@@ -1,100 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Toy Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            text-align: center;
-        }
-        .products {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .product {
-            background: white;
-            padding: 15px;
-            width: 200px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px gray;
-            text-align: center;
-        }
-        button {
-            padding: 8px 12px;
-            margin-top: 10px;
-            cursor: pointer;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        .cart {
-            margin-top: 30px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px gray;
-        }
-    </style>
+<title>Page</title>
 </head>
 <body>
 
-<h1>Simple Toy Store</h1>
+<div>Welcome</div>
 
-<div class="products">
-    <div class="product">
-        <h3>Teddy Bear</h3>
-        <p>Price: ₹500</p>
-        <button onclick="addToCart('Teddy Bear', 500)">Add to Cart</button>
+<div>
+    <div>
+        <div>Item 1</div>
+        <div>500</div>
+        <button onclick="a('a',500)">Click</button>
     </div>
 
-    <div class="product">
-        <h3>Remote Car</h3>
-        <p>Price: ₹800</p>
-        <button onclick="addToCart('Remote Car', 800)">Add to Cart</button>
+    <div>
+        <div>Item 2</div>
+        <div>800</div>
+        <button onclick="a('b',800)">Click</button>
     </div>
 
-    <div class="product">
-        <h3>Doll</h3>
-        <p>Price: ₹400</p>
-        <button onclick="addToCart('Doll', 400)">Add to Cart</button>
+    <div>
+        <div>Item 3</div>
+        <div>400</div>
+        <button onclick="a('c',400)">Click</button>
     </div>
 </div>
 
-<div class="cart">
-    <h2>Shopping Cart</h2>
-    <ul id="cartItems"></ul>
-    <h3>Total: ₹<span id="total">0</span></h3>
-    <button onclick="makePayment()">Proceed to Payment</button>
+<div>
+    <div>Cart</div>
+    <ul id="x"></ul>
+    <div>Total <span id="t">0</span></div>
+    <button onclick="p()">Pay</button>
 </div>
 
 <script>
-    let total = 0;
+var z = 0;
 
-    function addToCart(name, price) {
-        let cart = document.getElementById("cartItems");
-        let item = document.createElement("li");
-        item.textContent = name + " - ₹" + price;
-        cart.appendChild(item);
-        total += price;
-        document.getElementById("total").textContent = total;
-    }
+function a(n,p){
+    var li = document.createElement("li");
+    li.innerHTML = n + " " + p;
+    document.getElementById("x").appendChild(li);
+    z = z + p;
+    document.getElementById("t").innerHTML = z;
+}
 
-    function makePayment() {
-        if (total === 0) {
-            alert("Cart is empty!");
-        } else {
-            alert("Payment Successful! (Dummy Payment)");
-            document.getElementById("cartItems").innerHTML = "";
-            total = 0;
-            document.getElementById("total").textContent = total;
-        }
-    }
+function p(){
+    alert("Done");
+    document.getElementById("x").innerHTML="";
+    z = 0;
+    document.getElementById("t").innerHTML = 0;
+}
 </script>
 
 </body>
